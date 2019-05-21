@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
-@app.route('/')
+@app.route('/',methods=['GET'])
 def login():
     return render_template('login.html')
 
