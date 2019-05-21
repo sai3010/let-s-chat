@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <div class="row title">
-            <h2>Welcome {{name}} to {{room}}</h2>
+           <center><h4>Welcome {{name}} to {{room}} Room</h4></center> 
         </div>
         <div class="row form" id="append">
 
@@ -41,15 +41,21 @@
             socket = io.connect('http://localhost:5000');
             socket.on('connect', function() {
                 console.log('After connect');
+
+                /*Get's the socket response from server. 
+                  socketio.emit("response")
+                */
                 socket.on('response', function(msg) {
                     console.log("Message:" + msg['name'])
                     if (typeof msg.msg !== 'undefined') {
-                        $('.form').append('<div><b style="color: #000">' + msg['name'] + '</b> ' + msg['msg'] + '</div>')
+                        $('.form').append('<div><b style="color: #000">' + msg['name'] +":"+ '</b> ' + msg['msg'] + '</div>')
                     }
                 })
             });
+            /* To emit who has joined the room to the server*/
             socket.emit('joined', {});
 
+            /* Collecting socket emit from server regarding who has joined the room and display it on the screen*/
             socket.on('status', function(data) {
                 console.log("Status:", data)
                 if (typeof data.msg !== 'undefined') {
@@ -58,6 +64,9 @@
             })
         });
 
+        /*
+        This function collects the chat value and emits it to the server.
+        */
         function chatmsg() {
             var chmsg = document.getElementById("chat").value
             var form = document.getElementById("append")

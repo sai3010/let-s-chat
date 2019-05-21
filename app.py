@@ -25,11 +25,12 @@ def on_join(data):
 
 @socketio.on('msg')
 def handle_uname(json,methods=['GET', 'POST']):
-    print('my_response: ' + str(json))
+    # print('my_response: ' + str(json))
     uname=session.get('uname')
     room = session.get('room')
     data={'name':uname,'msg':json}
     socketio.emit("response",data,broadcast=True,room=room)
 
 if __name__ == '__main__':
+    print("Ruuning on port 5000")
     socketio.run(app)
