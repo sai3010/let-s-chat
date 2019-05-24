@@ -41,7 +41,7 @@
             uncomment localhost for running it in localhost
             */
             // socket = io.connect('http://localhost:5000');
-            
+
             socket = io.connect('https://letschat3031.herokuapp.com/');
             socket.on('connect', function() {
                 console.log('After connect');
@@ -75,7 +75,7 @@
             var chmsg = document.getElementById("chat").value
             var form = document.getElementById("append")
             socket.emit('msg', chmsg);
-
+            console.log("emitted msg",chmsg)
         }
     </script>
 </body>
