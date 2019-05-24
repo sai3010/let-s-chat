@@ -37,8 +37,12 @@
         var chat = null
         var socket = null
         $(document).ready(function() {
-            // sending a connect request to the server.
-            socket = io.connect('http://localhost:5000');
+            /* sending a connect request to the server.
+            uncomment localhost for running it in localhost
+            */
+            // socket = io.connect('http://localhost:5000');
+            
+            socket = io.connect('https://letschat3031.herokuapp.com/');
             socket.on('connect', function() {
                 console.log('After connect');
 
