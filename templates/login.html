@@ -36,9 +36,7 @@
             // sending a connect request to the server.
             /*uncomment localhost for running it in localhost
             */
-            // socket = io.connect('http://localhost:5000');
-
-            socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port)
+            socket = io.connect('http://localhost:5000');
             socket.on('connect', function() {
                 console.log('Connection Established');
             });
