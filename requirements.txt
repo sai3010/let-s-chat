@@ -2,3 +2,4 @@ Flask
 Flask-SocketIO
 Jinja2
 gunicorn
+eventlet
