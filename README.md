@@ -8,4 +8,4 @@ let's chat is a bi-directional chat application build with flask socket io.
 - `gunicorn --worker-class eventlet app:app`
 
 * Fire up your browser and navigate to `http://localhost:8000`.
-* Open another browser window , try to enter the same room as different user and you will be chat. 
+* Open another browser window , try to enter the same room as different user and you will be able to chat with anyone who joins the room. 
